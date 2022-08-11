@@ -1,4 +1,4 @@
-## Spring Boot CRUD
+## Spring Boot - CRUD
 
 + 교육 기관 : Fast Campus
 
