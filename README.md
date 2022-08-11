@@ -5,5 +5,4 @@
 + 학습 내용
   + REST API
   + Lombok
-  + JPA
-  + CRUD
+  + JPA CRUD
