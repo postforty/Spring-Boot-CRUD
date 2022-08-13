@@ -29,20 +29,29 @@ public class UserRepositoryTest extends StudyApplicationTests {
 //				
 //	}
 	
+//	@Test
+//	public void read() {
+//		Optional<User> user = userRepository.findById(2L);
+//		
+//		user.ifPresent(selectUser ->{
+//			System.out.println("user : "+selectUser);
+//			System.out.println("email : "+selectUser.getEmail());
+//			
+//		});
+//		
+//	}
+	
 	@Test
-	public void read() {
+	public void update() {
 		Optional<User> user = userRepository.findById(2L);
 		
 		user.ifPresent(selectUser ->{
-			System.out.println("user : "+selectUser);
-			System.out.println("email : "+selectUser.getEmail());
+			selectUser.setAccount("PPPP");
+			selectUser.setUpdatedAt(LocalDateTime.now());
+			selectUser.setUpdatedBy("update method()");
 			
+			userRepository.save(selectUser);
 		});
-		
-	}
-	
-	public void update() {
-		
 	}
 	
 	public void delete() {
