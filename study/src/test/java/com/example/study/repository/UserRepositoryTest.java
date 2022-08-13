@@ -41,20 +41,34 @@ public class UserRepositoryTest extends StudyApplicationTests {
 //		
 //	}
 	
+//	@Test
+//	public void update() {
+//		Optional<User> user = userRepository.findById(2L);
+//		
+//		user.ifPresent(selectUser ->{
+//			selectUser.setAccount("PPPP");
+//			selectUser.setUpdatedAt(LocalDateTime.now());
+//			selectUser.setUpdatedBy("update method()");
+//			
+//			userRepository.save(selectUser);
+//		});
+//	}
+//	
 	@Test
-	public void update() {
+	public void delete() {
 		Optional<User> user = userRepository.findById(2L);
 		
 		user.ifPresent(selectUser ->{
-			selectUser.setAccount("PPPP");
-			selectUser.setUpdatedAt(LocalDateTime.now());
-			selectUser.setUpdatedBy("update method()");
-			
-			userRepository.save(selectUser);
+			userRepository.delete(selectUser);
 		});
-	}
-	
-	public void delete() {
+		
+		Optional<User> deleteUser = userRepository.findById(2L);
+		
+		if(deleteUser.isPresent()) {
+			System.out.println("데이터 존재 : "+deleteUser.get());
+		} else {
+			System.out.println("데이터 삭제 데이터 없음");
+		}
 		
 	}
 }
