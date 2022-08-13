@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -57,8 +59,9 @@ public class UserRepositoryTest extends StudyApplicationTests {
 //	}
 //	
 	@Test
+	@Transactional // Roll back
 	public void delete() {
-		Optional<User> user = userRepository.findById(3L);
+		Optional<User> user = userRepository.findById(1L);
 		
 		assertTrue(user.isPresent());
 		
@@ -66,7 +69,7 @@ public class UserRepositoryTest extends StudyApplicationTests {
 			userRepository.delete(selectUser);
 		});
 		
-		Optional<User> deleteUser = userRepository.findById(3L);
+		Optional<User> deleteUser = userRepository.findById(1L);
 		
 		assertFalse(deleteUser.isPresent());
 		
