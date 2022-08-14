@@ -1,11 +1,6 @@
 package com.example.study.repository;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.Optional;
-
-import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +14,19 @@ public class UserRepositoryTest extends StudyApplicationTests {
 	@Autowired
 	private UserRepository userRepository;
 	
-//	@Test
-//	public void create() {
-//		User user = new User();
-//		user.setAccount("TestUser03");
-//		user.setEmail("TestUser03@gmail.com");
-//		user.setPhoneNumber("010-3333-3333");
-//		user.setCreatedAt(LocalDateTime.now());
-//		user.setCreatedBy("TestUser03");
-//		
-//		User newUser = userRepository.save(user);
-//		System.out.println("newUser : "+newUser);
-//				
-//	}
+	@Test
+	public void create() {
+		User user = new User();
+		user.setAccount("TestUser03");
+		user.setEmail("TestUser03@gmail.com");
+		user.setPhoneNumber("010-3333-3333");
+		user.setCreatedAt(LocalDateTime.now());
+		user.setCreatedBy("TestUser03");
+		
+		User newUser = userRepository.save(user);
+		System.out.println("newUser : "+newUser);
+				
+	}
 	
 //	@Test
 //	public void read() {
@@ -58,20 +53,20 @@ public class UserRepositoryTest extends StudyApplicationTests {
 //		});
 //	}
 //	
-	@Test
-	@Transactional // Roll back
-	public void delete() {
-		Optional<User> user = userRepository.findById(1L);
-		
-		assertTrue(user.isPresent());
-		
-		user.ifPresent(selectUser ->{
-			userRepository.delete(selectUser);
-		});
-		
-		Optional<User> deleteUser = userRepository.findById(1L);
-		
-		assertFalse(deleteUser.isPresent());
-		
-	}
+//	@Test
+//	@Transactional // Roll back
+//	public void delete() {
+//		Optional<User> user = userRepository.findById(1L);
+//		
+//		assertTrue(user.isPresent());
+//		
+//		user.ifPresent(selectUser ->{
+//			userRepository.delete(selectUser);
+//		});
+//		
+//		Optional<User> deleteUser = userRepository.findById(1L);
+//		
+//		assertFalse(deleteUser.isPresent());
+//		
+//	}
 }
