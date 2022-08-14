@@ -30,6 +30,11 @@ public class Item {
 	private String content;
 	
 	// 1 : N
+	
+	// LAZY = 지연로딩 , EAGER = 즉시로딩
+	
+	// LAZY = SELECT * FROM item where id = ?
+	// EAGER = 1 : 1 그외 경우에는 사용 주의. 모든 연관 관계를 가져오기 때문
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "item")
 	private List<OrderDetail> orderDetailList;
 	

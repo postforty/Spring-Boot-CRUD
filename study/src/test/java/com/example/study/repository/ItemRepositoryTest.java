@@ -16,21 +16,21 @@ public class ItemRepositoryTest extends StudyApplicationTests {
 	@Autowired
 	private ItemRepository itemRepository;
 	
-	@Test
-	public void create() {
-		
-		Item item = new Item();
-		item.setName("≥Î∆Æ∫œ");
-		item.setPrice(100000);
-		item.setContent("ªÔº∫ ≥Î∆Æ∫œ");
-		
-		Item newItem = itemRepository.save(item);
-		assertNotNull(newItem);
-	}
+//	@Test
+//	public void create() {
+//		
+//		Item item = new Item();
+//		item.setName("≥Î∆Æ∫œ");
+//		item.setPrice(100000);
+//		item.setContent("ªÔº∫ ≥Î∆Æ∫œ");
+//		
+//		Item newItem = itemRepository.save(item);
+//		assertNotNull(newItem);
+//	}
 	
 	@Test
 	public void read() {
-		Long id = 1L;
+		Long id = 2L;
 		
 		Optional<Item> item = itemRepository.findById(id);
 		assertTrue(item.isPresent());
